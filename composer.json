@@ -1,0 +1,31 @@
+{
+    "name": "holozaen/swissgeo",
+    "description": "Swiss geo information PHP library",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Peter Baettig",
+            "email": "info@online-verkaufen.ch"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ext-simplexml": "*",
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0@dev"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SwissGeo\\": "app/"
+        }
+    }
+}
