@@ -35,7 +35,8 @@ class Http
             if (curl_errno($curl)) {
                 throw new ApiException(curl_error($curl));
             }
-            return json_decode($response, true, 512, JSON_THROW_ON_ERROR);
+            /** @noinspection JsonEncodingApiUsageInspection */
+            return json_decode($response, true, 512);
         } catch (Exception $e){
             throw new ApiException($e);
         } finally {
