@@ -3,6 +3,9 @@
 
 namespace SwissGeo\Interfaces;
 
+/**
+ * $radius means distance in km
+ */
 
 interface Geocoding
 {
