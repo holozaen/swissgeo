@@ -1,5 +1,5 @@
 # swissgeo
-This library uses the public apis geo.admin.ch and swisspost.opendatasoft.com to get geoinformations.
+This library uses the public apis geo.admin.ch and swisspost.opendatasoft.com to get swiss geoinformation.
 ## Features
 * find streetnames
 * find postcode by city name
