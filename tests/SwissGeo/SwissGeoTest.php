@@ -10,6 +10,8 @@ class SwissGeoTest extends TestCase
     public function testFindCitiesNearAddress()
     {
         $this->assertCount(2,SwissGeo::findCitiesNearAddress('Malters', 1.5));
+        $this->assertCount(1,SwissGeo::findCitiesNearAddress('Malters'));
+        $this->assertEquals(['Malters'], SwissGeo::findCitiesNearAddress('Malters'));
     }
 
     public function testFindPointByAddress()

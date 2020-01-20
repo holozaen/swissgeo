@@ -63,7 +63,7 @@ class SwissGeo implements Geocoding, ReverseGeocoding
         return $cityArray;
     }
 
-    public static function findCitiesNearAddress(string $location, float $radius): ?array
+    public static function findCitiesNearAddress(string $location, float $radius = 0): ?array
     {
         $currentLocation = self::findPointByAddress($location);
         if (!$currentLocation) {
