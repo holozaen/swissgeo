@@ -50,7 +50,7 @@ class SwissGeo implements Geocoding, ReverseGeocoding
         return ['x' => $firstElement['attrs']['x'], 'y' => $firstElement['attrs']['y']];
     }
 
-    public static function findCitiesNearPoint(float $x, float $y, float $radius): ?array
+    public static function findCitiesNearPoint(float $x, float $y, float $radius = 0): ?array
     {
         $locations = GeoAdminGateway::getLocationsByGeometryPoint($x, $y, $radius);
         if (count($locations['results']) === 0) {

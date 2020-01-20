@@ -23,6 +23,7 @@ class SwissGeoTest extends TestCase
     public function testFindCitiesNearPoint()
     {
         $this->assertCount(2,SwissGeo::findCitiesNearPoint(210318.1875, 657089.5,1.5));
+        $this->assertCount(1,SwissGeo::findCitiesNearPoint(210318.1875, 657089.5));
     }
 
     public function testFindPostcodeByCity()
