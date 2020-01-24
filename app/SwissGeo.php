@@ -8,6 +8,7 @@ use SwissGeo\Gateways\GeoAdminGateway;
 use SwissGeo\Gateways\SwissPostGateway;
 use SwissGeo\Interfaces\Geocoding;
 use SwissGeo\Interfaces\ReverseGeocoding;
+use SwissGeo\Support\GeoConverter;
 
 class SwissGeo implements Geocoding, ReverseGeocoding
 {
@@ -63,6 +64,14 @@ class SwissGeo implements Geocoding, ReverseGeocoding
         return $cityArray;
     }
 
+    public static function findCitiesNearLatLon(float $lat, float $lon, float $radius = 0): ?array
+    {
+        $point = GeoConverter::latLonToPoint($lat, $lon);
+        if (!$point) {
+            return null;
+        }
+        return self::findCitiesNearPoint($point['x'], $point['y'], $radius);
+    }
     public static function findCitiesNearAddress(string $location, float $radius = 0): ?array
     {
         $currentLocation = self::findPointByAddress($location);
@@ -98,5 +107,14 @@ class SwissGeo implements Geocoding, ReverseGeocoding
     public static function findCantonByCity(string $name): ?string
     {
         return SwissPostGateway::getCantonByCity($name);
+    }
+
+    public static function findCityByLatLon(float $lat, float $lon): ?string
+    {
+        $point = GeoConverter::latLonToPoint($lat, $lon);
+        if (!$point) {
+            return null;
+        }
+        return self::findCityByPoint($point['x'], $point['y']);
     }
 }
